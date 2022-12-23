@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
-*{
+@import url("https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap");
+* {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
-.body{
-    background: url("../img/bg.jpg"); 
+.body {
+    background: url("../img/bg.jpg");
     min-height: 100vh;
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
@@ -14,25 +15,25 @@
     align-items: center;
 }
 
-#scoreBox{
+#scoreBox {
     position: absolute;
     top: 9px;
     right: 200px;
     font-size: 39px;
     font-weight: bold;
-    font-family: 'New Tegomin', serif;
+    font-family: "New Tegomin", serif;
 }
 
-#hiscoreBox{
+#hiscoreBox {
     position: absolute;
     top: 59px;
     right: 140px;
     font-size: 39px;
     font-weight: bold;
-    font-family: 'New Tegomin', serif;
+    font-family: "New Tegomin", serif;
 }
 
-#board{
+#board {
     background: linear-gradient(rgb(170, 236, 170), rgb(236, 236, 167));
     width: 90vmin;
     height: 92vmin;
@@ -42,21 +43,118 @@
     grid-template-columns: repeat(18, 1fr);
 }
 
-.head{
+.head {
     background: linear-gradient(rgb(240, 124, 124), rgb(228, 228, 129));
-    border: 2px solid rgb(34, 4, 34); 
+    border: 2px solid rgb(34, 4, 34);
     transform: scale(1.02);
     border-radius: 9px;
 }
 
-.snake{
+.snake {
     background-color: purple;
-    border: .25vmin solid white;
+    border: 0.25vmin solid white;
     border-radius: 12px;
 }
 
-.food{
+.food {
     background: linear-gradient(red, purple);
-    border: .25vmin solid black;
+    border: 0.25vmin solid black;
     border-radius: 8px;
+}
+
+#buttons {
+    visibility: hidden;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        background-color: black;
+    }
+    .body {
+        background: url("../img/bg.jpg");
+        min-height: 100vh;
+        background-size: 100vw 100vh;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-position: 0px -5px;
+        background-size: contain;
+    }
+    #board {
+        background: linear-gradient(rgb(170, 236, 170), rgb(236, 236, 167));
+        width: 90vmin;
+        height: 92vmin;
+        display: grid;
+        grid-template-rows: repeat(18, 1fr);
+        grid-template-columns: repeat(18, 1fr);
+        margin-top: 2rem;
+        box-shadow: rgba(5, 247, 22, 0.56) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+    #scoreBox {
+        position: absolute;
+        top: 9px;
+        left: 1rem;
+        /* right: 200px; */
+        font-size: 32px;
+        font-weight: bold;
+        font-family: "New Tegomin", serif;
+        width: 15rem;
+    }
+    #hiscoreBox {
+        position: absolute;
+        top: 59px;
+        /* right: 200px; */
+        left: 1rem;
+        font-size: 32px;
+        font-weight: bold;
+        font-family: "New Tegomin", serif;
+        width: 15rem;
+    }
+    #buttons {
+        visibility: visible;
+        position: absolute;
+        bottom: -3rem;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 12rem;
+        height: 7rem;
+    }
+    #buttons #left {
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        transform: translate(0%, -50%);
+    }
+    #buttons #right {
+        position: absolute;
+        top: 50%;
+        right: 0%;
+        transform: translate(0%, -50%);
+    }
+    #buttons #top {
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+    #buttons #bottom {
+        position: absolute;
+        bottom: 0%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+    #buttons button {
+        min-width: 4rem;
+        border-radius: 1rem;
+        padding: 0.5rem 0.4rem;
+        background-color: #f53b57;
+        box-shadow: rgba(255, 255, 255, 0.35) 1.95px 1.95px 2.6px;
+        color: white;
+        font-weight: bold;
+        font-size: 0.9rem;
+    }
+    #buttons button:hover {
+        background-color: rgba(1, 1, 1, 0.689);
+    }
 }
