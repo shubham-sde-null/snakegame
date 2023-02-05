@@ -1,13 +1,19 @@
+//whenever we make some game then the most important part is to paint the screen again and agian, we can use the setInterval which can do this job for us but requestAnimationFrame is higly recommeded over here
 // Game Constants & Variables
+//here I have made the direction of snake as 0 0 , because I don't my snake to move when game start it must only move when user clicked some key
 let inputDir = { x: 0, y: 0 };
+//here I will bring all the sounds
 const foodSound = new Audio("music/food.mp3");
 const gameOverSound = new Audio("music/gameover.mp3");
 const moveSound = new Audio("music/move.mp3");
 const musicSound = new Audio("music/music.mp3");
+//here I am using the speed variable in order to stop repainting the screen very fast, so what was happeing with the help of requestAnimationFrame my screen is painting very fast so I am going to make a condition if the time is greater then a particluar calculated time then only print the screen
 let speed = 5;
 let score = 0;
+//here I am using the lastPiantTime as 0 initlally to run on first screen paint after that I will keep on skipping the screen paint and when the difference betweem the ctime which is continiously provided by the requestAnimationFrame and lastPaintTime is greater then the condtion time then our scren is going to paint again
 let lastPaintTime = 0;
 let snakeArr = [{ x: 13, y: 15 }];
+//here all buttons were selectes
 let leftKey = document.getElementById("left");
 let rightKey = document.getElementById("right");
 let topKey = document.getElementById("top");
@@ -16,6 +22,7 @@ let bottomKey = document.getElementById("bottom");
 food = { x: 6, y: 7 };
 
 // Game Functions
+//
 function main(ctime) {
   window.requestAnimationFrame(main);
   // console.log(ctime)
@@ -23,6 +30,7 @@ function main(ctime) {
     return;
   }
   lastPaintTime = ctime;
+
   gameEngine();
 }
 
@@ -121,7 +129,7 @@ if (hiscore === null) {
   hiscoreval = JSON.parse(hiscore);
   hiscoreBox.innerHTML = "HiScore: " + hiscore;
 }
-
+//here requestAnimation takes a function and returns the time i.e after how much time screen is painting again, here the main function will fire only once but we want to fire our main function again and again so for that what I will do I will fire the main function one time form here and then inside main function I will call requestAnimationFrame again and again such that we will get the loop where our game will run, it is working same as setInterval but requestAnimationFrame is good.
 window.requestAnimationFrame(main);
 window.addEventListener("keydown", (e) => {
   inputDir = { x: 0, y: 1 }; // Start the game

@@ -38,6 +38,7 @@
     width: 90vmin;
     height: 92vmin;
     border: 2px solid black;
+    /* I want to make a board for that I am using the grid where I will make 18 rows and 18 columns */
     display: grid;
     grid-template-rows: repeat(18, 1fr);
     grid-template-columns: repeat(18, 1fr);
@@ -119,6 +120,15 @@
         transform: translate(-50%, -50%);
         width: 12rem;
         height: 7rem;
+    }
+    #buttons img {
+        width: 25px;
+    }
+    #buttons #arrowLeft {
+        transform: rotate(-90deg);
+    }
+    #buttons #arrowRight {
+        transform: rotate(90deg);
     }
     #buttons #left {
         position: absolute;
